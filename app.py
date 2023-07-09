@@ -47,5 +47,15 @@ def api_add():
         addDict = {'id':id,'name': addName,'screen':addStatus}
         screens.append(addDict)
 
+@app.route('/api/v1/screens/update', methods=['POST'])
+def adi_update():
+    if request.method=='POST':
+        
+        updateId = request.args['id']
+        updateName = request.args['name']
+        updateStatus = request.args['status']
+
+        d = next(item for item in screens if item['id'] == updateId)
+        d['status'] = updateStatus
 
 app.run()
