@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-AU-Compatible" content="ie=edge" />
+    <link
+	    rel="stylesheet"
+	    href="https://unpkg.com/papercss@1.9.2/dist/paper.min.css"
+    />
+    <title>FlaskApp</title>
+</head>
+<body>
+    <h1>Hello World!</h1>
+    <h2>Welcome to FlaskApp!</h2>
+    <div class="sm-12 md-8 col">
+    <table class="table-hover">
+    <tr>
+	    <td>ID</td>
+	    <td>Name</td>
+	    <td>Status</td>
+    </tr>
+    {% for elem in screensVar %}
+    	<tr>
+    	{% for key, value in elem.items() %}
+		{% if "Down" in value['Status'] %}
+		<td><h3>{{ value }}</h3></td>
+		{% else %}
+		<td><h3><strong style="color: red;">{{ value }}</strong></h3></td>
+		{% endif %}
+	{% endfor %}
+	</tr>
+    {% endfor %}
+    </table>
+    </div>
+</body>
+</html>
